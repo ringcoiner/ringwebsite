@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$RING • Bitcoin Rings Memecoin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-bg {
+      background: linear-gradient(rgba(234, 88, 12, 0.85), rgba(180, 60, 0, 0.9)),
+                  url('https://i.imgur.com/f7e3395e-2734-4801-8df3-eb0f30108d99.jpg') center/cover no-repeat fixed;
+    }
+    .ring-glow { text-shadow: 0 0 40px #facc15, 0 0 80px #fb923c; }
+    .nft-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nft-card:hover {
+      transform: scale(1.08) rotate(2deg);
+      box-shadow: 0 0 50px rgba(234, 179, 8, 0.7);
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-yellow-500/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-black text-3xl">💍</div>
+        <h1 class="text-3xl font-bold tracking-tighter ring-glow">$RING</h1>
+      </div>
+
+      <div class="hidden md:flex gap-8 text-lg">
+        <a href="#about" class="hover:text-yellow-400 transition">About</a>
+        <a href="#nft" class="hover:text-yellow-400 transition">NFT Gallery</a>
+        <a href="#tokenomics" class="hover:text-yellow-400 transition">Tokenomics</a>
+        <a href="#buy" class="hover:text-yellow-400 transition">How to Buy</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button id="connect-wallet" class="px-6 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-2xl flex items-center gap-2 transition">
+          <i class="fas fa-wallet"></i>
+          <span id="wallet-text">Connect Wallet</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg min-h-screen flex items-center pt-20">
+    <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+      <div class="inline-flex items-center gap-3 bg-white/10 px-6 py-2 rounded-full mb-8 backdrop-blur">
+        <span class="text-yellow-400">🔥 LIVE</span>
+        <span class="text-sm">Solana • Fair Launch</span>
+      </div>
+      
+      <h1 class="text-7xl md:text-8xl font-black tracking-tighter mb-6 ring-glow">
+        $RING<br><span class="text-yellow-400">BITCOIN RINGS</span>
+      </h1>
+      
+      <p class="text-2xl md:text-3xl mb-10 max-w-3xl mx-auto">
+        Buy $RING • Get unique <span class="text-yellow-400">Bitcoin Ring NFT</span> for free
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <a href="#buy" class="px-12 py-6 bg-yellow-400 hover:bg-yellow-300 text-black text-2xl font-bold rounded-2xl flex items-center gap-4 transition">
+          <i class="fas fa-bolt"></i> Buy $RING Now
+        </a>
+        <a href="#nft" class="px-10 py-6 border-2 border-yellow-400 hover:bg-white/10 text-xl font-semibold rounded-2xl transition">
+          View NFT Collection →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-24 bg-zinc-950">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-5xl font-bold mb-8">Why $RING?</h2>
+          <p class="text-xl leading-relaxed text-gray-300">
+            $RING is not just another memecoin. It's a bold tribute to Bitcoin — transformed into luxurious, collectible golden rings.
+          </p>
+          <p class="text-xl leading-relaxed text-gray-300 mt-6">
+            We believe Bitcoin deserves more than numbers on a chart. It deserves to be worn, celebrated, and remembered as the ultimate symbol of financial freedom.
+          </p>
+           </p>
+          <p class="text-xl leading-relaxed text-gray-300 mt-6">
+            Every time you buy and hold $RING, you have a real chance to claim rare Bitcoin Ring NFTs.
+          </p>
+        </div>
+        <div class="text-center text-[160px] opacity-30">💍</div>
+      </div>
+    </div>
+  </section>
+
+<!-- ROADMAP SECTION -->
+<section id="roadmap" class="py-24 bg-zinc-950 border-t border-yellow-500/20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-5xl font-bold text-center mb-16 ring-glow">$RING Roadmap 2026 – 2027</h2>
+    
+    <div class="relative max-w-5xl mx-auto">
+      <!-- Timeline line -->
+      <div class="absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-yellow-500/30 via-yellow-400 to-yellow-500/30"></div>
+      
+      <div class="grid md:grid-cols-5 gap-8 relative">
+        
+        <!-- Phase 1 -->
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💍</div>
+          <h3 class="font-bold text-xl mb-2">Phase 1</h3>
+          
+          <p class="font-semibold">Community Foundation</p>
+          <ul class="text-sm text-gray-400 mt-4 space-y-2">
+            <li>• Building strong community</li>
+            <li>• Telegram + X + Discord</li>
+            <li>• Memes & regular content</li>
+            <li>• Whitelist for Early Supporters</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-6">Target: 500 – 1,500 active members</p>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🚀</div>
+          <h3 class="font-bold text-xl mb-2">Phase 2</h3>
+          
+          <p class="font-semibold">Official Launch</p>
+          <ul class="text-sm text-gray-400 mt-4 space-y-2">
+            <li>• Fair Launch on Solana</li>
+            <li>• Website + Wallet Connect</li>
+            <li>• NFT Gallery Launch</li>
+          </ul>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💎</div>
+          <h3 class="font-bold text-xl mb-2">Phase 3</h3>
+          
+          <p class="font-semibold">NFT Utility</p>
+          <ul class="text-sm text-gray-400 mt-4 space-y-2">
+            <li>• Bitcoin Rings NFT Collection</li>
+            <li>• Claim system for $RING holders</li>
+            <li>• Rarity rewards & utility</li>
+          </ul>
+          <p class="text-xs text-gray-500 mt-6">Target: 3,000 – 6,000 holders</p>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">📈</div>
+          <h3 class="font-bold text-xl mb-2">Phase 4</h3>
+          
+          <p class="font-semibold">Growth & Visibility</p>
+          <ul class="text-sm text-gray-400 mt-4 space-y-2">
+            <li>• CoinGecko listings</li>
+            <li>• Marketing campaigns</li>
+          </ul>
+          
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🌟</div>
+          <h3 class="font-bold text-xl mb-2">Phase 5</h3>
+          
+          <p class="font-semibold">Long-term Vision</p>
+          <ul class="text-sm text-gray-400 mt-4 space-y-2">
+            <li>• DAO Governance</li>
+            <li>• Further NFT utility</li>
+            <li>• Expansion into Bitcoin ecosystem</li>
+            
+          </ul>
+          <p class="text-xs text-gray-500 mt-6">Target: 8,000 – 15,000 holders</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- NFT Gallery -->
+  <section id="nft" class="py-24 bg-black">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-4">Bitcoin Rings NFT Collection</h2>
+      <p class="text-center text-xl text-yellow-400 mb-12">Click any ring to see details</p>
+      <div class="grid md:grid-cols-3 gap-8" id="nft-grid"></div>
+    </div>
+  </section>
+
+  <!-- Tokenomics -->
+  <section id="tokenomics" class="py-24 bg-zinc-950">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-16">$RING Tokenomics</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="bg-zinc-900 p-8 rounded-3xl"><p class="text-yellow-400 text-sm">SUPPLY</p><p class="text-5xl font-bold mt-4">1B</p></div>
+        <div class="bg-zinc-900 p-8 rounded-3xl"><p class="text-yellow-400 text-sm">LIQUIDITY</p><p class="text-5xl font-bold mt-4">100%</p></div>
+        <div class="bg-zinc-900 p-8 rounded-3xl"><p class="text-yellow-400 text-sm">TAX</p><p class="text-5xl font-bold mt-4">0/0</p></div>
+        <div class="bg-zinc-900 p-8 rounded-3xl"><p class="text-yellow-400 text-sm">RENOUNCED</p><p class="text-5xl font-bold mt-4">✅</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUY -->
+  <section id="buy" class="py-24 bg-black border-t border-b border-yellow-500/30">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-6xl font-black mb-8">How to Buy $RING</h2>
+      <div class="bg-zinc-900 rounded-3xl p-12">
+        <ol class="text-left max-w-md mx-auto space-y-8 text-lg">
+          <li class="flex gap-6"><span class="w-10 h-10 bg-yellow-400 text-black rounded-2xl flex items-center justify-center font-bold">1</span><div>Install Phantom wallet</div></li>
+          <li class="flex gap-6"><span class="w-10 h-10 bg-yellow-400 text-black rounded-2xl flex items-center justify-center font-bold">2</span><div>Buy SOL on Binance or Coinbase</div></li>
+          <li class="flex gap-6"><span class="w-10 h-10 bg-yellow-400 text-black rounded-2xl flex items-center justify-center font-bold">3</span><div>Go to Raydium and swap SOL for $RING</div></li>
+        </ol>
+        <a href="https://raydium.io/swap/?inputMint=sol&outputMint=TVOJE_CONTRACT_ADRESA" target="_blank" class="mt-12 inline-block px-16 py-6 bg-yellow-400 text-black text-2xl font-bold rounded-2xl hover:scale-105 transition">
+          Go to Raydium →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black py-16 border-t border-yellow-500/20">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-gray-500">© 2026 $RING • Memecoin for fun • Not financial advice</p>
+      <p class="text-xs text-gray-600 mt-8">Made with ❤️ for the community</p>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="nft-modal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+    <div class="modal bg-zinc-900 rounded-3xl max-w-lg w-full mx-4 overflow-hidden">
+      <div id="modal-image" class="h-80 bg-gradient-to-br from-yellow-400 to-amber-600 flex items-center justify-center text-9xl"></div>
+      <div class="p-8">
+        <h3 id="modal-name" class="text-3xl font-bold mb-2"></h3>
+        <p id="modal-rarity" class="text-yellow-400 text-lg mb-4"></p>
+        <p id="modal-desc" class="text-gray-300 mb-6"></p>
+        <button onclick="closeModal()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-2xl text-lg">
+          Claim This NFT
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Wallet Connect
+    let walletAddress = null;
+    async function connectWallet() {
+      if (window.solana && window.solana.isPhantom) {
+        try {
+          const resp = await window.solana.connect();
+          walletAddress = resp.publicKey.toString();
+          document.getElementById('wallet-text').textContent = walletAddress.slice(0,6) + "..." + walletAddress.slice(-4);
+          alert("Wallet connected! 🎉");
+        } catch (err) {
+          alert("Connection failed.");
+        }
+      } else {
+        alert("Please install Phantom wallet");
+      }
+    }
+    document.getElementById('connect-wallet').addEventListener('click', connectWallet);
+
+    // NFT Gallery
+    const nfts = [
+      { name: "Golden Genesis Ring", rarity: "Legendary", emoji: "🥇", color: "from-yellow-400 to-amber-600", desc: "The rarest and most powerful ring. Only 10 exist." },
+      { name: "Diamond Satoshi Ring", rarity: "Epic", emoji: "🔷", color: "from-blue-400 to-cyan-600", desc: "Honoring the creator of Bitcoin." },
+      { name: "Cyber Ring", rarity: "Rare", emoji: "⚡", color: "from-zinc-400 to-gray-600", desc: "Futuristic cyberpunk design." }
+    ];
+
+    function renderNFTs() {
+      const grid = document.getElementById('nft-grid');
+      grid.innerHTML = nfts.map((nft, i) => `
+        <div onclick="showNFT(${i})" class="nft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer">
+          <div class="h-64 bg-gradient-to-br ${nft.color} flex items-center justify-center text-8xl">${nft.emoji}</div>
+          <div class="p-6">
+            <h3 class="font-bold text-2xl">${nft.name}</h3>
+            <p class="text-yellow-400">${nft.rarity}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function showNFT(i) {
+      const nft = nfts[i];
+      document.getElementById('modal-image').style.background = `linear-gradient(to bottom right, #eab308, #f59e0b)`;
+      document.getElementById('modal-image').innerHTML = `<span class="text-9xl">${nft.emoji}</span>`;
+      document.getElementById('modal-name').textContent = nft.name;
+      document.getElementById('modal-rarity').textContent = nft.rarity;
+      document.getElementById('modal-desc').textContent = nft.desc;
+      document.getElementById('nft-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('nft-modal').classList.add('hidden');
+    }
+
+    // Inicializace
+    window.onload = renderNFTs;
+  </script>
+</body>
+</html>
