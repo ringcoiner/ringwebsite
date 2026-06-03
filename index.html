@@ -8,45 +8,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; }
-    .hero-bg {
-      background: linear-gradient(rgba(234, 88, 12, 0.85), rgba(180, 60, 0, 0.9)),
-                  url('https://i.imgur.com/f7e3395e-2734-4801-8df3-eb0f30108d99.jpg') center/cover no-repeat fixed;
-    }
-    .ring-glow { text-shadow: 0 0 40px #facc15, 0 0 80px #fb923c; }
-    .nft-card {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .nft-card:hover {
-      transform: scale(1.08) rotate(2deg);
-      box-shadow: 0 0 50px rgba(234, 179, 8, 0.7);
-    }
+    .ring-glow { text-shadow: 0 0 30px #facc15, 0 0 60px #eab308; }
   </style>
 </head>
 <body class="bg-black text-white">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-yellow-500/30">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-black text-3xl">💍</div>
-        <h1 class="text-3xl font-bold tracking-tighter ring-glow">$RING</h1>
-      </div>
-
-      <div class="hidden md:flex gap-8 text-lg">
-        <a href="#about" class="hover:text-yellow-400 transition">About</a>
-        <a href="#nft" class="hover:text-yellow-400 transition">NFT Gallery</a>
-        <a href="#tokenomics" class="hover:text-yellow-400 transition">Tokenomics</a>
-        <a href="#buy" class="hover:text-yellow-400 transition">How to Buy</a>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <button id="connect-wallet" class="px-6 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-2xl flex items-center gap-2 transition">
-          <i class="fas fa-wallet"></i>
-          <span id="wallet-text">Connect Wallet</span>
-        </button>
-      </div>
+<nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-yellow-500/30">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-black text-3xl">💍</div>
+      <h1 class="text-3xl font-bold tracking-tighter ring-glow">$RING</h1>
     </div>
-  </nav>
+
+    <div class="hidden md:flex gap-8 text-lg">
+      <a href="#about" class="hover:text-yellow-400 transition">About</a>
+      <a href="#roadmap" class="hover:text-yellow-400 transition">Roadmap</a>
+      <a href="#nft" class="hover:text-yellow-400 transition">NFT Gallery</a>
+      <a href="#tokenomics" class="hover:text-yellow-400 transition">Tokenomics</a>
+      <a href="#buy" class="hover:text-yellow-400 transition">How to Buy</a>
+    </div>
+
+    <!-- VYLEPŠENÉ WALLET TLAČÍTKO -->
+    <button id="connect-wallet" 
+            class="px-6 py-3 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-black font-bold rounded-2xl flex items-center gap-3 transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-xl hover:shadow-yellow-500/50">
+      <i id="wallet-icon" class="fas fa-wallet text-lg"></i>
+      <span id="wallet-text" class="font-medium">Connect Wallet</span>
+    </button>
+  </div>
+</nav>
 
   <!-- HERO -->
   <section class="hero-bg min-h-screen flex items-center pt-20">
@@ -57,7 +47,8 @@
       </div>
       
       <h1 class="text-7xl md:text-8xl font-black tracking-tighter mb-6 ring-glow">
-        $RING<br><span class="text-yellow-400">BITCOIN RINGS</span>
+        $RING<br>
+        <span class="text-yellow-400">BITCOIN RINGS</span>
       </h1>
       
       <p class="text-2xl md:text-3xl mb-10 max-w-3xl mx-auto">
@@ -65,12 +56,17 @@
       </p>
 
       <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-        <a href="#buy" class="px-12 py-6 bg-yellow-400 hover:bg-yellow-300 text-black text-2xl font-bold rounded-2xl flex items-center gap-4 transition">
+        <a href="#buy" id="buy-btn" class="px-12 py-6 bg-yellow-400 hover:bg-yellow-300 text-black text-2xl font-bold rounded-2xl flex items-center gap-4 transition">
           <i class="fas fa-bolt"></i> Buy $RING Now
         </a>
-        <a href="#nft" class="px-10 py-6 border-2 border-yellow-400 hover:bg-white/10 text-xl font-semibold rounded-2xl transition">
+        <a href="#nft" id="nft-btn" class="px-10 py-6 border-2 border-yellow-400 hover:bg-white/10 text-xl font-semibold rounded-2xl transition">
           View NFT Collection →
         </a>
+      </div>
+
+      <div class="mt-16 flex flex-wrap justify-center gap-8 text-sm">
+        <div>Contract: <span id="contract" class="font-mono text-yellow-400 cursor-pointer">TBD - replace with your address</span></div>
+        <div>Supply: <span class="font-mono">1,000,000,000 $RING</span></div>
       </div>
     </div>
   </section>
@@ -87,17 +83,18 @@
           <p class="text-xl leading-relaxed text-gray-300 mt-6">
             We believe Bitcoin deserves more than numbers on a chart. It deserves to be worn, celebrated, and remembered as the ultimate symbol of financial freedom.
           </p>
-           </p>
           <p class="text-xl leading-relaxed text-gray-300 mt-6">
-            Every time you buy and hold $RING, you have a real chance to claim rare Bitcoin Ring NFTs.
+            Every time you buy and hold $RING, you have a real chance to claim rare <strong>Bitcoin Ring NFTs</strong> — unique digital jewelry that proves you're part of the Bitcoin revolution.
           </p>
         </div>
-        <div class="text-center text-[160px] opacity-30">💍</div>
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-yellow-500/30">
+          <img src="https://picsum.photos/id/1015/800/600" alt="Bitcoin Ring" class="rounded-2xl w-full shadow-2xl">
+        </div>
       </div>
     </div>
   </section>
 
-<!-- ROADMAP SECTION -->
+  <!-- ROADMAP SECTION -->
 <section id="roadmap" class="py-24 bg-zinc-950 border-t border-yellow-500/20">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-5xl font-bold text-center mb-16 ring-glow">$RING Roadmap 2026 – 2027</h2>
@@ -160,7 +157,7 @@
             <li>• CoinGecko listings</li>
             <li>• Marketing campaigns</li>
           </ul>
-          
+        
         </div>
 
         <!-- Phase 5 -->
@@ -170,10 +167,10 @@
           
           <p class="font-semibold">Long-term Vision</p>
           <ul class="text-sm text-gray-400 mt-4 space-y-2">
-            <li>• DAO Governance</li>
+            
             <li>• Further NFT utility</li>
             <li>• Expansion into Bitcoin ecosystem</li>
-            
+            <li>• Major community events</li>
           </ul>
           <p class="text-xs text-gray-500 mt-6">Target: 8,000 – 15,000 holders</p>
         </div>
@@ -182,16 +179,33 @@
     </div>
   </div>
 </section>
-  <!-- NFT Gallery -->
+
+  <!-- NFT SECTION -->
   <section id="nft" class="py-24 bg-black">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-5xl font-bold text-center mb-4">Bitcoin Rings NFT Collection</h2>
-      <p class="text-center text-xl text-yellow-400 mb-12">Click any ring to see details</p>
+      <p class="text-center text-2xl text-yellow-400 mb-16">Buy $RING = Get a Ring</p>
+      
       <div class="grid md:grid-cols-3 gap-8" id="nft-grid"></div>
     </div>
   </section>
 
-  <!-- Tokenomics -->
+  <!-- Modal -->
+  <div id="nft-modal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+    <div class="modal bg-zinc-900 rounded-3xl max-w-lg w-full mx-4 overflow-hidden">
+      <div id="modal-image" class="h-80 bg-gradient-to-br from-yellow-400 to-amber-600 flex items-center justify-center text-9xl"></div>
+      <div class="p-8">
+        <h3 id="modal-name" class="text-3xl font-bold mb-2"></h3>
+        <p id="modal-rarity" class="text-yellow-400 text-lg mb-4"></p>
+        <p id="modal-desc" class="text-gray-300 mb-6"></p>
+        <button onclick="closeModal()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-2xl text-lg">
+          Claim This NFT
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOKENOMICS -->
   <section id="tokenomics" class="py-24 bg-zinc-950">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-5xl font-bold mb-16">$RING Tokenomics</h2>
@@ -224,46 +238,17 @@
   <!-- FOOTER -->
   <footer class="bg-black py-16 border-t border-yellow-500/20">
     <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="flex justify-center gap-8 text-4xl mb-10">
+        <a href="#" class="hover:text-yellow-400">𝕏</a>
+        <a href="#" class="hover:text-yellow-400">📱</a>
+        <a href="#" class="hover:text-yellow-400">💬</a>
+      </div>
       <p class="text-gray-500">© 2026 $RING • Memecoin for fun • Not financial advice</p>
       <p class="text-xs text-gray-600 mt-8">Made with ❤️ for the community</p>
     </div>
   </footer>
 
-  <!-- Modal -->
-  <div id="nft-modal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50">
-    <div class="modal bg-zinc-900 rounded-3xl max-w-lg w-full mx-4 overflow-hidden">
-      <div id="modal-image" class="h-80 bg-gradient-to-br from-yellow-400 to-amber-600 flex items-center justify-center text-9xl"></div>
-      <div class="p-8">
-        <h3 id="modal-name" class="text-3xl font-bold mb-2"></h3>
-        <p id="modal-rarity" class="text-yellow-400 text-lg mb-4"></p>
-        <p id="modal-desc" class="text-gray-300 mb-6"></p>
-        <button onclick="closeModal()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-2xl text-lg">
-          Claim This NFT
-        </button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Wallet Connect
-    let walletAddress = null;
-    async function connectWallet() {
-      if (window.solana && window.solana.isPhantom) {
-        try {
-          const resp = await window.solana.connect();
-          walletAddress = resp.publicKey.toString();
-          document.getElementById('wallet-text').textContent = walletAddress.slice(0,6) + "..." + walletAddress.slice(-4);
-          alert("Wallet connected! 🎉");
-        } catch (err) {
-          alert("Connection failed.");
-        }
-      } else {
-        alert("Please install Phantom wallet");
-      }
-    }
-    document.getElementById('connect-wallet').addEventListener('click', connectWallet);
-
-    // NFT Gallery
     const nfts = [
       { name: "Golden Genesis Ring", rarity: "Legendary", emoji: "🥇", color: "from-yellow-400 to-amber-600", desc: "The rarest and most powerful ring. Only 10 exist." },
       { name: "Diamond Satoshi Ring", rarity: "Epic", emoji: "🔷", color: "from-blue-400 to-cyan-600", desc: "Honoring the creator of Bitcoin." },
@@ -298,7 +283,76 @@
     }
 
     // Inicializace
-    window.onload = renderNFTs;
+    window.onload = () => {
+      renderNFTs();
+    };
+
+    // Copy contract
+    document.getElementById('contract').addEventListener('click', function() {
+      navigator.clipboard.writeText(this.textContent);
+      alert('Contract address copied!');
+    });
   </script>
+
+  <!-- Modal -->
+  <div id="nft-modal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+    <div class="modal bg-zinc-900 rounded-3xl max-w-lg w-full mx-4 overflow-hidden">
+      <div id="modal-image" class="h-80 bg-cover bg-center flex items-center justify-center"></div>
+      <div class="p-8">
+        <h3 id="modal-name" class="text-3xl font-bold mb-2"></h3>
+        <p id="modal-rarity" class="text-yellow-400 text-lg mb-4"></p>
+        <p id="modal-desc" class="text-gray-300 mb-6"></p>
+        <button onclick="closeModal()" class="w-full py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-2xl text-lg">
+          Claim This NFT
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+  
+   <script>
+  let walletAddress = null;
+
+  async function connectWallet() {
+    if (!window.solana || !window.solana.isPhantom) {
+      alert("Please install Phantom Wallet → phantom.app");
+      return;
+    }
+
+    try {
+      const resp = await window.solana.connect();
+      walletAddress = resp.publicKey.toString();
+
+      const shortAddress = walletAddress.slice(0, 6) + "..." + walletAddress.slice(-4);
+      
+      document.getElementById('wallet-text').textContent = shortAddress;
+      document.getElementById('wallet-icon').classList.remove('fa-wallet');
+      document.getElementById('wallet-icon').classList.add('fa-circle-check');
+      document.getElementById('connect-wallet').classList.add('!bg-green-500', '!hover:bg-green-400');
+
+      alert("✅ Wallet successfully connected!");
+    } catch (err) {
+      alert("Connection failed.");
+    }
+  }
+
+  function disconnectWallet() {
+    walletAddress = null;
+    document.getElementById('wallet-text').textContent = "Connect Wallet";
+    document.getElementById('wallet-icon').classList.remove('fa-circle-check');
+    document.getElementById('wallet-icon').classList.add('fa-wallet');
+    document.getElementById('connect-wallet').classList.remove('!bg-green-500', '!hover:bg-green-400');
+  }
+
+  // Kliknutí na tlačítko
+  document.getElementById('connect-wallet').addEventListener('click', (e) => {
+    if (walletAddress) {
+      disconnectWallet();
+    } else {
+      connectWallet();
+    }
+  });
+</script>
 </body>
 </html>
