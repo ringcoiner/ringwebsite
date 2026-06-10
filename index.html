@@ -29,28 +29,24 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
     }
-  </style>
-</head>
-<body class="bg-black text-white overflow-x-hidden">
 
-  /* Roadmap improvements */
+    /* Roadmap CSS */
     .roadmap-container {
       position: relative;
     }
     .roadmap-line {
       position: absolute;
-      top: 48px;
-      left: 50%;
-      right: 0;
+      top: 60px;
+      left: 40px;
+      right: 40px;
       height: 4px;
       background: linear-gradient(to right, #facc15, #eab308);
       opacity: 0.3;
       z-index: 0;
     }
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
       .roadmap-line {
-        left: 40px;
-        right: 40px;
+        display: none;
       }
     }
   </style>
@@ -207,18 +203,16 @@
     </div>
   </section>
 
-  <!-- ROADMAP - VYLEPŠENÁ PRO DESKTOP -->
+   <!-- ROADMAP -->
   <section id="roadmap" class="py-24 bg-zinc-950 border-t border-yellow-500/20">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-5xl font-bold text-center mb-16 ring-glow">$RING Roadmap 2026 – 2027</h2>
       
       <div class="roadmap-container relative">
-        <!-- Timeline line -->
         <div class="roadmap-line hidden md:block"></div>
 
         <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
           
-          <!-- Phase 1 -->
           <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
             <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💍</div>
             <h3 class="font-bold text-2xl mb-1">Phase 1</h3>
@@ -232,7 +226,6 @@
             <p class="text-xs text-gray-500 mt-8">Target: 500 – 1,500 active members</p>
           </div>
 
-          <!-- Phase 2 -->
           <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
             <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🚀</div>
             <h3 class="font-bold text-2xl mb-1">Phase 2</h3>
@@ -244,7 +237,6 @@
             </ul>
           </div>
 
-          <!-- Phase 3 -->
           <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
             <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💎</div>
             <h3 class="font-bold text-2xl mb-1">Phase 3</h3>
@@ -257,7 +249,6 @@
             <p class="text-xs text-gray-500 mt-8">Target: 3,000 – 6,000 holders</p>
           </div>
 
-          <!-- Phase 4 -->
           <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
             <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">📈</div>
             <h3 class="font-bold text-2xl mb-1">Phase 4</h3>
@@ -268,7 +259,6 @@
             </ul>
           </div>
 
-          <!-- Phase 5 -->
           <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
             <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🌟</div>
             <h3 class="font-bold text-2xl mb-1">Phase 5</h3>
@@ -285,6 +275,7 @@
       </div>
     </div>
   </section>
+
   <!-- NFT GALLERY -->
   <section id="nft" class="py-24 bg-black">
     <div class="max-w-6xl mx-auto px-6">
