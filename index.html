@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +10,34 @@
     body { font-family: 'Inter', system-ui, sans-serif; }
     .ring-glow { text-shadow: 0 0 40px #facc15, 0 0 80px #eab308; }
     .hero-bg {
-      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://i.imgur.com/NyBkmDh.jpg');
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('https://i.imgur.com/NyBkmDh.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
-    .nft-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-    .nft-card:hover { transform: scale(1.08) rotate(2deg); }
+    .nft-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nft-card:hover {
+      transform: scale(1.08) rotate(2deg);
+      box-shadow: 0 0 40px rgba(250, 204, 21, 0.5);
+    }
+    .live-dot {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
   </style>
 </head>
 <body class="bg-black text-white overflow-x-hidden">
 
-  <!-- Navbar -->
+  <!-- NAVBAR -->
   <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-lg z-50 border-b border-yellow-500/30">
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <img src="https://i.imgur.com/TPN1fRM.jpg" alt="$RING Logo" class="w-11 h-11 rounded-full border-2 border-yellow-400">
+        <img src="https://i.imgur.com/TPN1fRM.jpg" alt="$RING Logo" class="w-11 h-11 rounded-full border-2 border-yellow-400 shadow-lg">
         <h1 class="text-4xl font-black tracking-tighter ring-glow">$RING</h1>
       </div>
 
@@ -34,8 +46,305 @@
         <a href="#roadmap" class="hover:text-yellow-400 transition">Roadmap</a>
         <a href="#nft" class="hover:text-yellow-400 transition">NFTs</a>
         <a href="#tokenomics" class="hover:text-yellow-400 transition">Tokenomics</a>
-        <a href="#buy" class="hover:text-yellow-400 transition">Buy</a>
+        <a href="#buy" class="hover:text-yellow-400 transition">How to Buy</a>
       </div>
 
-      <div class="flex items-center gap-4">
-        <a href="https://x.com/RINGcoinsolana" target="_blank" class="hover:text-yellow-
+      <div class="flex items-center gap-5">
+        <a href="https://x.com/RINGcoinsolana" target="_blank" class="text-2xl hover:text-yellow-400"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://t.me/ringcoinbitcoin" target="_blank" class="text-2xl hover:text-yellow-400"><i class="fab fa-telegram-plane"></i></a>
+
+        <button id="connect-wallet"
+                class="px-6 py-3 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-black font-bold rounded-2xl flex items-center gap-3 transition-all">
+          <i id="wallet-icon" class="fas fa-wallet text-lg"></i>
+          <span id="wallet-text">Connect Wallet</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg min-h-screen flex items-center pt-20">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-3 bg-white/10 px-8 py-3 rounded-full mb-8 backdrop-blur border border-yellow-400/30">
+        <span class="text-emerald-400 live-dot">● LIVE</span>
+        <span class="text-yellow-400 font-medium">Fair Launch on Solana • 2026</span>
+      </div>
+
+      <h1 class="text-7xl md:text-8xl font-black tracking-tighter ring-glow leading-none mb-6">
+        $RING<br>
+        <span class="text-yellow-400">BITCOIN RINGS</span>
+      </h1>
+
+      <p class="text-3xl md:text-4xl max-w-3xl mx-auto mb-12 text-gray-100">
+        Buy $RING • Get unique <span class="text-yellow-400 font-bold">Bitcoin Ring NFT</span> for free
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <a href="#buy" class="px-14 py-6 bg-yellow-400 hover:bg-yellow-300 text-black text-3xl font-bold rounded-3xl flex items-center gap-4 transition shadow-xl shadow-yellow-500/50">
+          <i class="fas fa-bolt"></i> BUY $RING NOW
+        </a>
+        <a href="#nft" class="px-10 py-6 border-2 border-yellow-400 text-xl font-semibold rounded-3xl hover:bg-white/10 transition">
+          View NFT Collection →
+        </a>
+      </div>
+
+      <!-- Live Stats -->
+      <div class="mt-20 grid grid-cols-3 max-w-md mx-auto gap-10 text-center">
+        <div>
+          <p class="text-4xl font-bold text-emerald-400" id="price">0.00042</p>
+          <p class="text-sm text-gray-400">Price (SOL)</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-emerald-400" id="mcap">281K</p>
+          <p class="text-sm text-gray-400">Market Cap</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-emerald-400" id="holders">1,247</p>
+          <p class="text-sm text-gray-400">Holders</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-24 bg-zinc-950">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-5xl font-bold mb-8">Why $RING?</h2>
+          <p class="text-xl leading-relaxed text-gray-300">
+            $RING is not just another memecoin. It's a luxurious tribute to Bitcoin — transformed into wearable golden rings.
+          </p>
+          <p class="text-xl leading-relaxed text-gray-300 mt-6">
+            Every time you buy and hold $RING, you get a chance to claim a unique <strong>Bitcoin Ring NFT</strong>.
+          </p>
+          <p class="text-xl leading-relaxed text-gray-300 mt-6">
+            "Wear Your Bag" is not just a slogan — it's a lifestyle.
+          </p>
+        </div>
+        <div>
+          <img src="https://i.imgur.com/NyBkmDh.jpg" alt="Bitcoin Ring" class="rounded-3xl shadow-2xl w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="py-24 bg-black">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-6xl font-black ring-glow mb-6">THE LEGEND OF $RING</h2>
+      <p class="text-3xl text-yellow-400 mb-12">"Wear Your Bag"</p>
+      
+      <div class="prose prose-invert max-w-none text-lg leading-relaxed text-gray-300 space-y-8">
+        <p class="text-2xl">In a world where memecoins rise and fade overnight, one legend refused to disappear.</p>
+        <p>The Ring of Eternal Hype was shattered into millions of fragments. In 2026, those fragments have been reborn as <strong>$RING</strong>.</p>
+        <p class="text-yellow-400 text-2xl font-medium">Every purchase = a new unique NFT ring in your wallet.</p>
+        <p class="text-3xl font-bold text-yellow-400 mt-12">Your ring isn’t just a picture.<br>It’s your clout on the blockchain.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap" class="py-24 bg-zinc-950">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-16 ring-glow">$RING Roadmap 2026–2027</h2>
+      <div class="grid md:grid-cols-5 gap-8 relative">
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💍</div>
+          <h3 class="font-bold text-xl">Phase 1</h3>
+          <p class="text-yellow-400">Community Foundation</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🚀</div>
+          <h3 class="font-bold text-xl">Phase 2</h3>
+          <p class="text-yellow-400">Fair Launch</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💎</div>
+          <h3 class="font-bold text-xl">Phase 3</h3>
+          <p class="text-yellow-400">NFT Claim System</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">📈</div>
+          <h3 class="font-bold text-xl">Phase 4</h3>
+          <p class="text-yellow-400">Listings & Marketing</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🌟</div>
+          <h3 class="font-bold text-xl">Phase 5</h3>
+          <p class="text-yellow-400">Bitcoin Ecosystem</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NFT GALLERY -->
+  <section id="nft" class="py-24 bg-black">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-4">Bitcoin Rings NFT Collection</h2>
+      <p class="text-center text-2xl text-yellow-400 mb-16">Buy $RING → Hold → Claim Rare Ring</p>
+      
+      <div class="grid md:grid-cols-3 gap-8" id="nft-grid"></div>
+    </div>
+  </section>
+
+  <!-- NFT MODAL -->
+  <div id="nft-modal" class="hidden fixed inset-0 bg-black/95 flex items-center justify-center z-[100]">
+    <div class="bg-zinc-900 rounded-3xl max-w-lg w-full mx-4 overflow-hidden">
+      <div id="modal-image" class="h-80 flex items-center justify-center text-9xl"></div>
+      <div class="p-8">
+        <h3 id="modal-name" class="text-3xl font-bold mb-2"></h3>
+        <p id="modal-rarity" class="text-yellow-400 text-lg mb-4"></p>
+        <p id="modal-desc" class="text-gray-300 mb-8"></p>
+        <button onclick="closeModal()" 
+                class="w-full py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-2xl text-lg">
+          Claim This NFT
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOKENOMICS -->
+  <section id="tokenomics" class="py-24 bg-zinc-950">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-6 ring-glow">$RING Tokenomics</h2>
+      <p class="text-center text-3xl font-bold text-yellow-400 mb-16">
+        Total Supply: <span class="text-white">666,000,000</span> $RING
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div class="bg-zinc-800 rounded-3xl p-8 text-center border border-yellow-500/30 hover:border-yellow-400 transition">
+          <div class="text-6xl mb-4">💰</div>
+          <h3 class="text-2xl font-bold mb-1">Liquidity Pool</h3>
+          <p class="text-5xl font-bold text-yellow-400">50%</p>
+          <p class="text-gray-400">333,000,000 $RING</p>
+          <p class="text-emerald-400 text-xs mt-6">Locked & Burned</p>
+        </div>
+        <div class="bg-zinc-800 rounded-3xl p-8 text-center border border-yellow-500/30 hover:border-yellow-400 transition">
+          <div class="text-6xl mb-4">📣</div>
+          <h3 class="text-2xl font-bold mb-1">Marketing & Rewards</h3>
+          <p class="text-5xl font-bold text-yellow-400">20%</p>
+          <p class="text-gray-400">133,200,000 $RING</p>
+        </div>
+        <div class="bg-zinc-800 rounded-3xl p-8 text-center border border-yellow-500/30 hover:border-yellow-400 transition">
+          <div class="text-6xl mb-4">🛠️</div>
+          <h3 class="text-2xl font-bold mb-1">Team & Development</h3>
+          <p class="text-5xl font-bold text-yellow-400">14%</p>
+          <p class="text-gray-400">93,240,000 $RING</p>
+          <p class="text-amber-400 text-xs mt-6">Vested 12 months</p>
+        </div>
+        <div class="bg-zinc-800 rounded-3xl p-8 text-center border border-yellow-500/30 hover:border-yellow-400 transition">
+          <div class="text-6xl mb-4">🎁</div>
+          <h3 class="text-2xl font-bold mb-1">NFT & Community</h3>
+          <p class="text-5xl font-bold text-yellow-400">12%</p>
+          <p class="text-gray-400">79,920,000 $RING</p>
+        </div>
+        <div class="bg-zinc-800 rounded-3xl p-8 text-center border border-yellow-500/30 hover:border-yellow-400 transition">
+          <div class="text-6xl mb-4">👑</div>
+          <h3 class="text-2xl font-bold mb-1">Dev Wallet</h3>
+          <p class="text-5xl font-bold text-yellow-400">4%</p>
+          <p class="text-gray-400">26,640,000 $RING</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO BUY -->
+  <section id="buy" class="py-24 bg-black">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-6xl font-black mb-10">How to Buy $RING</h2>
+      <div class="bg-zinc-900 rounded-3xl p-12">
+        <ol class="text-left max-w-md mx-auto space-y-8 text-lg">
+          <li class="flex gap-6"><span class="w-10 h-10 bg-yellow-400 text-black rounded-2xl flex items-center justify-center font-bold flex-shrink-0">1</span> Install Phantom Wallet</li>
+          <li class="flex gap-6"><span class="w-10 h-10 bg-yellow-400 text-black rounded-2xl flex items-center justify-center font-bold flex-shrink-0">2</span> Buy SOL on Binance or Coinbase</li>
+          <li class="flex gap-6"><span class="w-10 h-10 bg-yellow-400 text-black rounded-2xl flex items-center justify-center font-bold flex-shrink-0">3</span> Swap SOL for $RING on Raydium</li>
+        </ol>
+        <a href="https://raydium.io/swap/" target="_blank" 
+           class="mt-12 inline-block px-16 py-6 bg-yellow-400 text-black text-2xl font-bold rounded-3xl hover:scale-105 transition">
+          Go to Raydium →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black py-16 border-t border-yellow-500/20">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="flex justify-center gap-8 text-4xl mb-10">
+        <a href="https://x.com/RINGcoinsolana" target="_blank" class="hover:text-yellow-400">𝕏</a>
+        <a href="https://t.me/ringcoinbitcoin" target="_blank" class="hover:text-yellow-400">📱</a>
+      </div>
+      <p class="text-gray-500">© 2026 $RING • Memecoin for fun • Not financial advice</p>
+      <p class="text-xs text-gray-600 mt-4">Made with ❤️ for the community</p>
+    </div>
+  </footer>
+
+  <script>
+    // Live stats
+    let holders = 1247;
+    setInterval(() => {
+      holders += Math.floor(Math.random() * 4) + 1;
+      document.getElementById('holders').textContent = holders.toLocaleString();
+    }, 4000);
+
+    // Wallet Connect
+    let walletAddress = null;
+    async function connectWallet() {
+      if (!window.solana || !window.solana.isPhantom) {
+        alert("Please install Phantom Wallet → phantom.app");
+        return;
+      }
+      try {
+        const resp = await window.solana.connect();
+        walletAddress = resp.publicKey.toString();
+        const short = walletAddress.slice(0, 6) + "..." + walletAddress.slice(-4);
+        document.getElementById('wallet-text').textContent = short;
+        document.getElementById('wallet-icon').classList.replace('fa-wallet', 'fa-circle-check');
+      } catch (err) {
+        alert("Connection failed");
+      }
+    }
+    document.getElementById('connect-wallet').addEventListener('click', connectWallet);
+
+    // NFT Data
+    const nfts = [
+      { name: "Classic Bitcoin Ring", rarity: "Common", emoji: "🥇", color: "from-amber-400 to-yellow-600", desc: "Entry level Bitcoin Ring for new holders." },
+      { name: "Silver Satoshi Ring", rarity: "Rare", emoji: "🥈", color: "from-blue-400 to-cyan-500", desc: "Rare silver edition honoring Satoshi Nakamoto." },
+      { name: "Golden Genesis Ring", rarity: "Epic", emoji: "🌟", color: "from-yellow-400 to-amber-500", desc: "Epic golden ring for serious diamond hands." },
+      { name: "Diamond Halving Ring", rarity: "Legendary", emoji: "💎", color: "from-purple-400 to-pink-500", desc: "Legendary diamond ring - extremely rare." },
+      { name: "Mythic Eternal Ring", rarity: "Mythic", emoji: "🔥", color: "from-red-500 to-orange-600", desc: "The rarest ring. Ultimate symbol of conviction." }
+    ];
+
+    function renderNFTs() {
+      const grid = document.getElementById('nft-grid');
+      grid.innerHTML = nfts.map((nft, i) => `
+        <div onclick="showNFT(${i})" class="nft-card bg-zinc-900 rounded-3xl overflow-hidden cursor-pointer border border-yellow-500/10">
+          <div class="h-72 bg-gradient-to-br ${nft.color} flex items-center justify-center text-9xl">${nft.emoji}</div>
+          <div class="p-6">
+            <h3 class="font-bold text-2xl">${nft.name}</h3>
+            <p class="text-yellow-400 font-medium">${nft.rarity}</p>
+            <p class="text-sm text-gray-400 mt-3">${nft.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function showNFT(i) {
+      const nft = nfts[i];
+      document.getElementById('modal-image').className = `h-80 bg-gradient-to-br ${nft.color} flex items-center justify-center text-9xl`;
+      document.getElementById('modal-image').innerHTML = nft.emoji;
+      document.getElementById('modal-name').textContent = nft.name;
+      document.getElementById('modal-rarity').textContent = nft.rarity;
+      document.getElementById('modal-desc').textContent = nft.desc;
+      document.getElementById('nft-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('nft-modal').classList.add('hidden');
+    }
+
+    // Initialize
+    window.onload = renderNFTs;
+  </script>
+</body>
+</html>
