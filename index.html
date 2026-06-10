@@ -33,6 +33,29 @@
 </head>
 <body class="bg-black text-white overflow-x-hidden">
 
+  /* Roadmap improvements */
+    .roadmap-container {
+      position: relative;
+    }
+    .roadmap-line {
+      position: absolute;
+      top: 48px;
+      left: 50%;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, #facc15, #eab308);
+      opacity: 0.3;
+      z-index: 0;
+    }
+    @media (min-width: 768px) {
+      .roadmap-line {
+        left: 40px;
+        right: 40px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
   <!-- NAVBAR -->
   <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-lg z-50 border-b border-yellow-500/30">
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
@@ -184,80 +207,84 @@
     </div>
   </section>
 
-  <!-- ROADMAP - VYLEPŠENÁ VERZE -->
+  <!-- ROADMAP - VYLEPŠENÁ PRO DESKTOP -->
   <section id="roadmap" class="py-24 bg-zinc-950 border-t border-yellow-500/20">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-5xl font-bold text-center mb-16 ring-glow">$RING Roadmap 2026 – 2027</h2>
       
-      <div class="grid md:grid-cols-5 gap-6 md:gap-8">
-        
-        <!-- Phase 1 -->
-        <div class="roadmap-card bg-zinc-900 rounded-3xl p-8 text-center border border-yellow-500/20 hover:border-yellow-400">
-          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💍</div>
-          <h3 class="font-bold text-xl mb-2">Phase 1</h3>
-          <p class="font-semibold text-yellow-400">Community Foundation</p>
-          <ul class="text-left text-sm text-gray-400 mt-6 space-y-3">
-            <li class="flex items-start gap-2">• Building strong community</li>
-            <li class="flex items-start gap-2">• Telegram + X + Discord</li>
-            <li class="flex items-start gap-2">• Memes & regular content</li>
-            <li class="flex items-start gap-2">• Whitelist for Early Supporters</li>
-          </ul>
-          <p class="text-xs text-gray-500 mt-8">Target: 500 – 1,500 active members</p>
-        </div>
+      <div class="roadmap-container relative">
+        <!-- Timeline line -->
+        <div class="roadmap-line hidden md:block"></div>
 
-        <!-- Phase 2 -->
-        <div class="roadmap-card bg-zinc-900 rounded-3xl p-8 text-center border border-yellow-500/20 hover:border-yellow-400">
-          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🚀</div>
-          <h3 class="font-bold text-xl mb-2">Phase 2</h3>
-          <p class="font-semibold text-yellow-400">Official Launch</p>
-          <ul class="text-left text-sm text-gray-400 mt-6 space-y-3">
-            <li class="flex items-start gap-2">• Fair Launch on Solana</li>
-            <li class="flex items-start gap-2">• Website + Wallet Connect</li>
-            <li class="flex items-start gap-2">• NFT Gallery Launch</li>
-          </ul>
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
+          
+          <!-- Phase 1 -->
+          <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
+            <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💍</div>
+            <h3 class="font-bold text-2xl mb-1">Phase 1</h3>
+            <p class="font-semibold text-yellow-400 mb-6">Community Foundation</p>
+            <ul class="text-sm text-gray-400 space-y-3 text-left">
+              <li>• Building strong community</li>
+              <li>• Telegram + X + Discord</li>
+              <li>• Memes & regular content</li>
+              <li>• Whitelist for Early Supporters</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-8">Target: 500 – 1,500 active members</p>
+          </div>
 
-        <!-- Phase 3 -->
-        <div class="roadmap-card bg-zinc-900 rounded-3xl p-8 text-center border border-yellow-500/20 hover:border-yellow-400">
-          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💎</div>
-          <h3 class="font-bold text-xl mb-2">Phase 3</h3>
-          <p class="font-semibold text-yellow-400">NFT Utility</p>
-          <ul class="text-left text-sm text-gray-400 mt-6 space-y-3">
-            <li class="flex items-start gap-2">• Bitcoin Rings NFT Collection</li>
-            <li class="flex items-start gap-2">• Claim system for $RING holders</li>
-            <li class="flex items-start gap-2">• Rarity rewards & utility</li>
-          </ul>
-          <p class="text-xs text-gray-500 mt-8">Target: 3,000 – 6,000 holders</p>
-        </div>
+          <!-- Phase 2 -->
+          <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
+            <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🚀</div>
+            <h3 class="font-bold text-2xl mb-1">Phase 2</h3>
+            <p class="font-semibold text-yellow-400 mb-6">Official Launch</p>
+            <ul class="text-sm text-gray-400 space-y-3 text-left">
+              <li>• Fair Launch on Solana</li>
+              <li>• Website + Wallet Connect</li>
+              <li>• NFT Gallery Launch</li>
+            </ul>
+          </div>
 
-        <!-- Phase 4 -->
-        <div class="roadmap-card bg-zinc-900 rounded-3xl p-8 text-center border border-yellow-500/20 hover:border-yellow-400">
-          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">📈</div>
-          <h3 class="font-bold text-xl mb-2">Phase 4</h3>
-          <p class="font-semibold text-yellow-400">Growth & Visibility</p>
-          <ul class="text-left text-sm text-gray-400 mt-6 space-y-3">
-            <li class="flex items-start gap-2">• CoinGecko listings</li>
-            <li class="flex items-start gap-2">• Marketing campaigns</li>
-          </ul>
-        </div>
+          <!-- Phase 3 -->
+          <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
+            <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">💎</div>
+            <h3 class="font-bold text-2xl mb-1">Phase 3</h3>
+            <p class="font-semibold text-yellow-400 mb-6">NFT Utility</p>
+            <ul class="text-sm text-gray-400 space-y-3 text-left">
+              <li>• Bitcoin Rings NFT Collection</li>
+              <li>• Claim system for $RING holders</li>
+              <li>• Rarity rewards & utility</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-8">Target: 3,000 – 6,000 holders</p>
+          </div>
 
-        <!-- Phase 5 -->
-        <div class="roadmap-card bg-zinc-900 rounded-3xl p-8 text-center border border-yellow-500/20 hover:border-yellow-400">
-          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🌟</div>
-          <h3 class="font-bold text-xl mb-2">Phase 5</h3>
-          <p class="font-semibold text-yellow-400">Long-term Vision</p>
-          <ul class="text-left text-sm text-gray-400 mt-6 space-y-3">
-            <li class="flex items-start gap-2">• Further NFT utility</li>
-            <li class="flex items-start gap-2">• Expansion into Bitcoin ecosystem</li>
-            <li class="flex items-start gap-2">• Major community events</li>
-          </ul>
-          <p class="text-xs text-gray-500 mt-8">Target: 8,000 – 15,000 holders</p>
-        </div>
+          <!-- Phase 4 -->
+          <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
+            <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">📈</div>
+            <h3 class="font-bold text-2xl mb-1">Phase 4</h3>
+            <p class="font-semibold text-yellow-400 mb-6">Growth & Visibility</p>
+            <ul class="text-sm text-gray-400 space-y-3 text-left">
+              <li>• CoinGecko listings</li>
+              <li>• Marketing campaigns</li>
+            </ul>
+          </div>
 
+          <!-- Phase 5 -->
+          <div class="text-center md:text-left bg-zinc-900 rounded-3xl p-8 border border-yellow-500/20 hover:border-yellow-400 transition-all">
+            <div class="w-20 h-20 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-xl">🌟</div>
+            <h3 class="font-bold text-2xl mb-1">Phase 5</h3>
+            <p class="font-semibold text-yellow-400 mb-6">Long-term Vision</p>
+            <ul class="text-sm text-gray-400 space-y-3 text-left">
+              <li>• Further NFT utility</li>
+              <li>• Expansion into Bitcoin ecosystem</li>
+              <li>• Major community events</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-8">Target: 8,000 – 15,000 holders</p>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
-
   <!-- NFT GALLERY -->
   <section id="nft" class="py-24 bg-black">
     <div class="max-w-6xl mx-auto px-6">
